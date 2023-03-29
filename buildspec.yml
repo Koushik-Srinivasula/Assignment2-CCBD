@@ -4,15 +4,18 @@ phases:
   install:
     runtime-versions:
       python: 3.9
-  pre_build:
-    commands:
-      - echo "Installing dependencies..."
-      - pip install -r requirements.txt -t .
+
   build:
     commands:
-      - echo "Building lamda functions..."
-      - cd lamdas
-      - zip -r ../lambda_functions.zip *
-artifacts:
-  files:
-    - lambda_functions.zip
+      - cd Lambdas/LF1 && pip install -r requirements.txt -t build/
+      - cd build && zip -r ../../deployment-lf1.zip .
+      - cd ../../Lambdas/LF2 && pip install -r requirements.txt -t build/
+      - cd build && zip -r ../../deployment-lf2.zip .
+
+  post_build:
+    commands:
+      - aws s3 cp deployment-lf1.zip s3://my-bucket/LF1_AWS.zip
+      - aws lambda update-function-code --function-name LF1_AWS --s3-bucket my-bucket --s3-key LF1_AWS.zip
+      - aws s3 cp deployment-lf2.zip s3://my-bucket/LF2_AWS.zip
+      - aws lambda update-function-code --function-name LF2_AWS --s3-bucket my-bucket --s3-key LF2_AWS.zip
+
