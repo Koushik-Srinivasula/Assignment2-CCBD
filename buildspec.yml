@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - echo "Building lamda functions..."
-      - cd lamda
+      - cd lamdas
       - zip -r ../lambda_functions.zip *
 artifacts:
   files:
