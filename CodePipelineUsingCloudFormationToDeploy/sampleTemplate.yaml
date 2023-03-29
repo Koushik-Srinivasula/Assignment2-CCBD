@@ -32,7 +32,7 @@ Resources:
   #     Description: Lambda function Index CF
   #     MemorySize: 128
   #     Environment:
-  #       Variables:
+  #       Variables:d
   #         REGION: us-east-1
   #     Handler: lambda_function.lambda_handler
   #     Role: 'arn:aws:iam::704995242206:role/service-role/index-photos-role-p7kfyg0h'
