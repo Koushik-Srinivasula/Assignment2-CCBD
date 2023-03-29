@@ -14,8 +14,8 @@ phases:
 
   post_build:
     commands:
-      - aws s3 cp deployment-lf1.zip s3://my-bucket/LF1_AWS.zip
-      - aws lambda update-function-code --function-name LF1_AWS --s3-bucket my-bucket --s3-key LF1_AWS.zip
-      - aws s3 cp deployment-lf2.zip s3://my-bucket/LF2_AWS.zip
-      - aws lambda update-function-code --function-name LF2_AWS --s3-bucket my-bucket --s3-key LF2_AWS.zip
+      - aws s3 cp deployment-lf1.zip s3://photos-bucket-ks/LF1_AWS.zip
+      - aws lambda update-function-code --function-name test-lf1 --s3-bucket photos-bucket-ks --s3-key LF1_AWS.zip
+      - aws s3 cp deployment-lf2.zip s3://photos-bucket-ks/LF2_AWS.zip
+      - aws lambda update-function-code --function-name index-photos1 --s3-bucket photos-bucket-ks --s3-key LF2_AWS.zip
 
