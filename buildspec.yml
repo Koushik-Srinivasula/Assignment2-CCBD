@@ -10,8 +10,8 @@ phases:
       - pip install -r requirements.txt -t .
   build:
     commands:
-      - echo "Building Lambda functions..."
-      - cd Lambda
+      - echo "Building lamda functions..."
+      - cd lamda
       - zip -r ../lambda_functions.zip *
 artifacts:
   files:
