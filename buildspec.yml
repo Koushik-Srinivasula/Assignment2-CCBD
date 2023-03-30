@@ -7,10 +7,10 @@ phases:
 
   build:
     commands:
-      - cd Lambdas/LF1.py && pip install -r requirements.txt -t build/
-      - cd build && zip -r ../../deployment-lf1.zip .
-      - cd ../../Lambdas/LF2.py && pip install -r requirements.txt -t build/
-      - cd build && zip -r ../../deployment-lf2.zip .
+      - cd Lambdas && pip install -r requirements.txt -t build/
+      - cd build && zip -r ../deployment-lf1.zip LF1.py
+      - cd ../ && pip install -r requirements.txt -t build/
+      - cd build && zip -r ../deployment-lf2.zip LF2.py
 
   post_build:
     commands:
