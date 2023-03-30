@@ -16,7 +16,7 @@ phases:
       - cd ..
       - pip install -r Lambdas/requirements.txt -t Lambdas/build2
       - cp Lambdas/LF2.py Lambdas/build2/lambda_function.py
-      - cp Lambdas/utils.py Lambdas/build/utils.py
+      - cp Lambdas/utils.py Lambdas/build2/utils.py
       - cd Lambdas/build2
       - zip -r9 ../LF2.zip .
       - cd ..
