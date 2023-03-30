@@ -7,15 +7,15 @@ phases:
 
   build:
     commands:
-      - cd Lambdas/LF1 && pip install -r requirements.txt -t build/
+      - cd Lambdas/LF1.py && pip install -r requirements.txt -t build/
       - cd build && zip -r ../../deployment-lf1.zip .
-      - cd ../../Lambdas/LF2 && pip install -r requirements.txt -t build/
+      - cd ../../Lambdas/LF2.py && pip install -r requirements.txt -t build/
       - cd build && zip -r ../../deployment-lf2.zip .
 
   post_build:
     commands:
       - aws s3 cp deployment-lf1.zip s3://photos-bucket-ks/LF1_AWS.zip
-      - aws lambda update-function-code --function-name test-lf1 --s3-bucket photos-bucket-ks --s3-key LF1_AWS.zip
+      - aws lambda update-function-code --function-name test-lf1.py --s3-bucket photos-bucket-ks --s3-key LF1_AWS.zip
       - aws s3 cp deployment-lf2.zip s3://photos-bucket-ks/LF2_AWS.zip
-      - aws lambda update-function-code --function-name index-photos1 --s3-bucket photos-bucket-ks --s3-key LF2_AWS.zip
+      - aws lambda update-function-code --function-name index-photos1.py --s3-bucket photos-bucket-ks --s3-key LF2_AWS.zip
 
