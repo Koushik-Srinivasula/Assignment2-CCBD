@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+
+  build:
+    commands:
+      - echo "Nothing here move to post build"
+
+
+
+  post_build:
+    commands:
+      - aws s3 cp test.txt s3://photos-bucket-ks/test_file.txt
+      - aws s3 cp test.txt s3://photos-bucket-ks/test/test_file.txt
+      - aws s3 cp lamdas/LF1.py s3://photos-bucket-ks/test/LF1.py
+      
+    
+    
+    #  - aws s3 cp LF1.zip s3://photos-bucket-ks/LF1_AWS.zip
+     # - aws lambda update-function-code --function-name test-lf1 --s3-bucket photos-bucket-ks --s3-key LF1_AWS.zip
+     # - aws s3 cp LF2.zip s3://photos-bucket-ks/LF2_AWS.zip
+     # - aws lambda update-function-code --function-name index-photos1 --s3-bucket photos-bucket-ks --s3-key LF2_AWS.zip
