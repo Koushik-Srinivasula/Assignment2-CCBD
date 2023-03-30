@@ -1,1 +1,3 @@
-pandas
+requests
+requests-aws4auth
+opensearch-py
